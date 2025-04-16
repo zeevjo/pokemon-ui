@@ -1,0 +1,6 @@
+li {
+    color: white;
+    list-style-type: none;
+    border: red solid 1px;
+    max-width: 300px;
+}

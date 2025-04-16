@@ -1,20 +1,13 @@
-import "./pokemonItem.css"
+import { Pokemon } from "../../types/pokemon";
+import "./pokemonItem.css";
 
-type Type = {
-    name: string;
-}
-
-type PokemonItem = {
-    pokedexNumber: number;
-    name: string;
-    imgUrl: string;
-    types: Type[];
-}
-
-const PokemonItem = ({pokedexNumber, name}: PokemonItem) => {
+const PokemonItem = ({ pokedexNumber, name }: Pokemon) => {
   return (
-    <li>Pokemon Number:{pokedexNumber}, Pokemon Name:{name}</li>
-  )
-}
+    <li>
+      <div>Pokemon Number:{pokedexNumber}</div>
+      <div>Pokemon Name:{name}</div> 
+    </li>
+  );
+};
 
 export default PokemonItem;
