@@ -28,4 +28,5 @@
 .error{
   border: red solid 2px;
   color: red;
+  text-align: center;
 }

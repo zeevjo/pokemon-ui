@@ -1,6 +1,7 @@
 import PokemonItem from "./componenets/PokemonItem/PokemonItem";
 import { useEffect, useState } from "react";
 import { Pokemon } from "./types/pokemon";
+import { API } from "./constants/apiPaths";
 import "./App.css";
 
 const App = () => {
@@ -11,7 +12,9 @@ const App = () => {
   useEffect(() => {
     const fetchPokemons = async () => {
       try {
-        const response = await fetch("http://localhost:8080/api/pokemon");
+        const url = `${API.BASE_URL}${API.PATHS.GET_ALL_POKEMON}`;
+
+        const response = await fetch(url);
 
         if (!response.ok) {
           throw new Error(`Failed to fetch: ${response.status}`);
@@ -30,30 +33,22 @@ const App = () => {
     fetchPokemons();
   }, []);
 
-  if (isLoading) {
-    return (
-      <div className="appContainer">
-        <p>Loading...</p>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="appContainer">
-        <p className="error">{error}</p>
-      </div>
-    );
-  }
-
   return (
     <div className="appContainer">
-      <div className="pokemonListContainer">
-        <h1 className="pokemonListTitle">Pokemon List</h1>
-        {pokemons.map((pokemon) => (
-          <PokemonItem key={pokemon.pokedexNumber} {...pokemon} />
-        ))}
-      </div>
+      {isLoading && <p className="loading">Loading...</p>}
+
+      {error && <p className="error">{error}</p>}
+
+      {!isLoading && !error && (
+        <>
+          <div className="pokemonListContainer">
+            <h1 className="pokemonListTitle">Pokemon List</h1>
+            {pokemons.map((pokemon) => (
+              <PokemonItem key={pokemon.pokedexNumber} {...pokemon} />
+            ))}
+          </div>
+        </>
+      )}
     </div>
   );
 };
