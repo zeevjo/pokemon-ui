@@ -1,8 +1,9 @@
-import PokemonItem from "./componenets/PokemonItem/PokemonItem";
+import PokemonItem from "./components/PokemonItem/PokemonItem";
 import { useEffect, useState } from "react";
 import { Pokemon } from "./types/pokemon";
 import { API } from "./constants/apiPaths";
 import "./App.css";
+import Loader from "./components/Loader/Loader";
 
 const App = () => {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
@@ -35,7 +36,7 @@ const App = () => {
 
   return (
     <div className="appContainer">
-      {isLoading && <p className="loading">Loading...</p>}
+      {isLoading && <Loader/>}
 
       {error && <p className="error">{error}</p>}
 
