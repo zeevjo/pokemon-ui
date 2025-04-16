@@ -4,8 +4,8 @@ import "./pokemonItem.css";
 const PokemonItem = ({ pokedexNumber, name }: Pokemon) => {
   return (
     <li>
-      <div>Pokemon Number:{pokedexNumber}</div>
-      <div>Pokemon Name:{name}</div> 
+      <div>Pokemon Number: {pokedexNumber}</div>
+      <div>Pokemon Name: {name}</div> 
     </li>
   );
 };
