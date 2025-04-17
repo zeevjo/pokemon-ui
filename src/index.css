@@ -3,6 +3,7 @@
   --light-yellow: rgb(236, 229, 199);
   --light-brown: rgb(205, 194, 174);
   --dark-blue: rgb(17, 106, 123);
+  --error-red: rgb(192, 65, 64);
 }
 
 *{

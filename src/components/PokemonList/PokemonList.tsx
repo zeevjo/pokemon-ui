@@ -4,7 +4,8 @@ import PokemonItem from "../PokemonItem/PokemonItem";
 import API from "../../constants/apiPaths";
 import Pokemon from "../../interfaces/pokemon";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
-import "./PokemonList.css"
+import ERROR_MESSAGE from "../../constants/errorMessage";
+import "./PokemonList.css";
 
 const PokemonList = () => {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
@@ -15,18 +16,15 @@ const PokemonList = () => {
     const fetchPokemons = async () => {
       try {
         const url = `${API.BASE_URL}${API.PATHS.GET_ALL_POKEMON}`;
-
+        
         const response = await fetch(url);
 
-        if (!response.ok) {
-          throw new Error(`Failed to fetch: ${response.status}`);
-        }
+        if (!response.ok) throw new Error(ERROR_MESSAGE.TRY_AGAIN_LATER);
 
         const data = await response.json();
         setPokemons(data);
       } catch (err) {
-        setError("Something went wrong. Please try again later.");
-        console.error(err);
+        if (err instanceof Error) setError(err.message);
       } finally {
         setIsLoading(false);
       }
@@ -36,7 +34,7 @@ const PokemonList = () => {
   }, []);
 
   return (
-    <div>
+    <>
       {isLoading && <Loader />}
       {error && <ErrorMessage message={error} />}
       {!isLoading && !error && (
@@ -47,7 +45,7 @@ const PokemonList = () => {
           ))}
         </div>
       )}
-    </div>
+    </>
   );
 };
 
