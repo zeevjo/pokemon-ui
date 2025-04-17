@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Loader from "../Loader/Loader";
 import PokemonItem from "../PokemonItem/PokemonItem";
 import API from "../../constants/apiPaths";
-import Pokemon from "../../interfaces/pokemon";
+import Pokemon from "../../interfaces/pokemonProps";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import ERROR_MESSAGE from "../../constants/errorMessage";
 import "./PokemonList.css";
