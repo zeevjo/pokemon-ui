@@ -1,4 +1,4 @@
-import PokemonProp from "../../interfaces/pokemonProp";
+import PokemonProp from "../../interfaces/pokemonProps";
 import "./pokemonItem.css";
 
 const PokemonItem = ({ pokedexNumber, name }: PokemonProp) => {
