@@ -1,4 +1,4 @@
-import ErrorMessageProps from "../../interfaces/ErrorMessageProps";
+import ErrorMessageProps from "../../interfaces/errorMessageProps";
 import "./ErrorMessage.css"
 
 const ErrorMessage = ({ message }: ErrorMessageProps) => {
