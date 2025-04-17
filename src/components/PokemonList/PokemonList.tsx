@@ -4,6 +4,7 @@ import PokemonItem from "../PokemonItem/PokemonItem";
 import API from "../../constants/apiPaths";
 import Pokemon from "../../interfaces/pokemon";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import "./PokemonList.css"
 
 const PokemonList = () => {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);

@@ -1,0 +1,15 @@
+.pokemonListContainer {
+  height: 97vh;
+  overflow: hidden;
+  overflow-y: scroll;
+  text-align: center;
+  background: var(--dark-blue);
+  border-radius: 5px;
+  width: 25%;
+  border: 1px solid var(--dark-blue);
+}
+
+.pokemonListTitle {
+  margin-top: 10px;
+  color: var(--light-blue);
+}
