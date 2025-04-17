@@ -1,6 +1,6 @@
 import PokemonItem from "./components/PokemonItem/PokemonItem";
 import { useEffect, useState } from "react";
-import { Pokemon } from "./types/pokemon";
+import { Pokemon } from "./interfaces/pokemon";
 import { API } from "./constants/apiPaths";
 import "./App.css";
 import Loader from "./components/Loader/Loader";

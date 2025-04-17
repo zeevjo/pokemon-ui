@@ -1,6 +1,6 @@
 import { Type } from "./type";
 
-export type Pokemon = {
+export interface Pokemon  {
     pokedexNumber: number;
     name: string;
     imgUrl: string;

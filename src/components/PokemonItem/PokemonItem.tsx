@@ -1,4 +1,4 @@
-import { Pokemon } from "../../types/pokemon";
+import { Pokemon } from "../../interfaces/pokemon";
 import "./pokemonItem.css";
 
 const PokemonItem = ({ pokedexNumber, name }: Pokemon) => {
