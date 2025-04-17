@@ -1,6 +1,7 @@
 .pokemonListContainer {
   height: 97vh;
   width: 25%;
+  max-width: 310px;
   overflow: hidden;
   overflow-y: scroll;
   text-align: center;
