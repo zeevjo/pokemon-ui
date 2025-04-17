@@ -1,8 +1,9 @@
 import { Type } from "./type";
-
-export interface Pokemon  {
-    pokedexNumber: number;
-    name: string;
-    imgUrl: string;
-    types: Type[];
+interface Pokemon {
+  pokedexNumber: number;
+  name: string;
+  imgUrl: string;
+  types: Type[];
 }
+
+export default Pokemon;

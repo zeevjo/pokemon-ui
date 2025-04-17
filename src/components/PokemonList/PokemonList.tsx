@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import Loader from "../Loader/Loader";
 import PokemonItem from "../PokemonItem/PokemonItem";
-import { API } from "../../constants/apiPaths";
-import { Pokemon } from "../../interfaces/pokemon";
+import API from "../../constants/apiPaths";
+import Pokemon from "../../interfaces/pokemon";
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
 
-export const PokemonList = () => {
+const PokemonList = () => {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -32,21 +33,21 @@ export const PokemonList = () => {
 
     fetchPokemons();
   }, []);
-  
+
   return (
     <div>
       {isLoading && <Loader />}
-      {error && <p className="error">{error}</p>}
+      {error && <ErrorMessage message={error} />}
       {!isLoading && !error && (
-        <>
-          <div className="pokemonListContainer">
-            <h1 className="pokemonListTitle">Pokemon List</h1>
-            {pokemons.map((pokemon) => (
-              <PokemonItem key={pokemon.pokedexNumber} {...pokemon} />
-            ))}
-          </div>
-        </>
+        <div className="pokemonListContainer">
+          <h1 className="pokemonListTitle">Pokemon List</h1>
+          {pokemons.map((pokemon) => (
+            <PokemonItem key={pokemon.pokedexNumber} {...pokemon} />
+          ))}
+        </div>
       )}
     </div>
   );
 };
+
+export default PokemonList;
