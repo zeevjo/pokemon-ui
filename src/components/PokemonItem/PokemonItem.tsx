@@ -1,11 +1,11 @@
-import { Pokemon } from "../../interfaces/pokemon";
+import Pokemon from "../../interfaces/pokemon";
 import "./pokemonItem.css";
 
 const PokemonItem = ({ pokedexNumber, name }: Pokemon) => {
   return (
-    <li>
+    <li className="pokemonItemContainer">
       <div>Pokemon Number: {pokedexNumber}</div>
-      <div>Pokemon Name: {name}</div> 
+      <div>Pokemon Name: {name}</div>
     </li>
   );
 };
