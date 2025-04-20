@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import {PokemonItem,Loader, ErrorMessage} from "@/components"
-import {API, ERROR_MESSAGE} from "@/constants"
+import { PokemonItem, Loader, ErrorMessage } from "@/components";
+import { API, ERROR_MESSAGE } from "@/constants";
 import { PokemonProps } from "@/interfaces";
 import "./PokemonList.css";
 
