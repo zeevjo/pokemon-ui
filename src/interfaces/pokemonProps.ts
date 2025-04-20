@@ -1,4 +1,5 @@
-import { Type } from "./type";
+import { Type } from "@/interfaces";
+
 interface PokemonProp {
   pokedexNumber: number;
   name: string;

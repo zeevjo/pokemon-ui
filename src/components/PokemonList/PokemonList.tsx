@@ -1,14 +1,11 @@
 import { useEffect, useState } from "react";
-import Loader from "../Loader/Loader";
-import PokemonItem from "../PokemonItem/PokemonItem";
-import API from "../../constants/apiPaths";
-import Pokemon from "../../interfaces/pokemonProps";
-import ErrorMessage from "../ErrorMessage/ErrorMessage";
-import ERROR_MESSAGE from "../../constants/errorMessage";
+import {PokemonItem,Loader, ErrorMessage} from "@/components"
+import {API, ERROR_MESSAGE} from "@/constants"
+import { PokemonProps } from "@/interfaces";
 import "./PokemonList.css";
 
 const PokemonList = () => {
-  const [pokemons, setPokemons] = useState<Pokemon[]>([]);
+  const [pokemons, setPokemons] = useState<PokemonProps[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
