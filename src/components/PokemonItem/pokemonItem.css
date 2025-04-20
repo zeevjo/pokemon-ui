@@ -1,16 +1,16 @@
-.pokemonItemContainer{
-    list-style-type: none;
-    max-width: 300px;
-    padding: 5px;
-    margin:10px;
-    text-align: start;
-    color: var(--dark-blue);
-    background-color: var(--light-blue);
-    box-shadow: 1px 1px var(--light-blue);
-    border-radius: 5px;
-    cursor: pointer;
+.pokemonItemContainer {
+  list-style-type: none;
+  max-width: 300px;
+  padding: 5px;
+  margin: 10px;
+  text-align: start;
+  color: var(--dark-blue);
+  background-color: var(--light-blue);
+  box-shadow: 1px 1px var(--light-blue);
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.pokemonItemContainer:hover{
-    transform: scale(1.02);
+.pokemonItemContainer:hover {
+  transform: scale(1.02);
 }
