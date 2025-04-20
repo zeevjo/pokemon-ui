@@ -1,4 +1,5 @@
 import PokemonList from "./components/PokemonList/PokemonList";
+
 import "./App.css";
 
 const App = () => {

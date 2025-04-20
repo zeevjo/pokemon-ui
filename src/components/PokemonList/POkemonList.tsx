@@ -19,7 +19,7 @@ const PokemonList = () => {
   const fetchPokemons = async () => {
     try {
       const url = `${API.BASE_URL}${API.PATHS.GET_ALL_POKEMON}`;
-      
+
       const response = await fetch(url);
 
       if (!response.ok) throw new Error(ERROR_MESSAGE.TRY_AGAIN_LATER);
