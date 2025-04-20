@@ -1,5 +1,4 @@
-import PokemonList from "./components/PokemonList/PokemonList";
-
+import { PokemonList } from "@/components";
 import "./App.css";
 
 const App = () => {
