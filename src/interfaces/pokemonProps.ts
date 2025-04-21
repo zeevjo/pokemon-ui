@@ -1,10 +1,10 @@
 import { Type } from "@/interfaces";
 
-interface PokemonProp {
+interface Pokemon {
   pokedexNumber: number;
   name: string;
   imgUrl: string;
   types: Type[];
 }
 
-export default PokemonProp;
+export default Pokemon;

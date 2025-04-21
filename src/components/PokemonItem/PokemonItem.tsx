@@ -1,7 +1,7 @@
-import { PokemonProps } from "@/interfaces";
+import { Pokemon } from "@/interfaces";
 import "./pokemonItem.css";
 
-const PokemonItem = ({ pokedexNumber, name }: PokemonProps) => {
+const PokemonItem = ({ pokedexNumber, name }: Pokemon) => {
   return (
     <li className="pokemonItemContainer">
       <div>Pokemon Number: {pokedexNumber}</div>
