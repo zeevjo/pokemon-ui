@@ -1,5 +1,8 @@
-import { ErrorMessageProps } from "@/interfaces";
 import "./ErrorMessage.css";
+
+interface ErrorMessageProps  {
+  message: string;
+}
 
 const ErrorMessage = ({ message }: ErrorMessageProps) => {
   return <div className="errorMessageContainer">{message}</div>;
