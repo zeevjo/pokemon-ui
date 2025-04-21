@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import { PokemonItem, Loader, ErrorMessage } from "@/components";
 import { API, ERROR_MESSAGE } from "@/constants";
 import { PokemonProps } from "@/interfaces";
+import { useOperationState } from "@/hooks/useOperationState/useOperationState";
 import "./PokemonList.css";
 
 const PokemonList = () => {
   const [pokemons, setPokemons] = useState<PokemonProps[]>([]);
-  const [error, setError] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const { error, setError, isLoading, setIsLoading } = useOperationState();
 
   useEffect(() => {
     fetchPokemons();
