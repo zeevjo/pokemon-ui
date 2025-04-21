@@ -1,3 +1,3 @@
-export default interface Type {
+export interface Type {
     name: string;
 }

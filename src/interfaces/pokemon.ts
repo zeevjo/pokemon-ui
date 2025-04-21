@@ -1,10 +1,10 @@
-import { Type } from "@/interfaces";
+import { Type } from "@/interfaces/type";
 
-interface Pokemon {
+export interface Pokemon {
   pokedexNumber: number;
   name: string;
   imgUrl: string;
   types: Type[];
 }
 
-export default Pokemon;
+

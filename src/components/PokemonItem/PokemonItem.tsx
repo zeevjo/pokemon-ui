@@ -1,7 +1,7 @@
-import { Pokemon } from "@/interfaces";
+import { Pokemon } from "@/interfaces/pokemon";
 import "./pokemonItem.css";
 
-const PokemonItem = ({ pokedexNumber, name }: Pokemon) => {
+export const PokemonItem = ({ pokedexNumber, name }: Pokemon) => {
   return (
     <li className="pokemonItemContainer">
       <div>Pokemon Number: {pokedexNumber}</div>
@@ -9,5 +9,3 @@ const PokemonItem = ({ pokedexNumber, name }: Pokemon) => {
     </li>
   );
 };
-
-export default PokemonItem;

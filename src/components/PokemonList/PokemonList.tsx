@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
-import { PokemonItem, Loader, ErrorMessage } from "@/components";
-import { API, ERROR_MESSAGE } from "@/constants";
-import { Pokemon } from "@/interfaces";
+import { PokemonItem } from "@/components/PokemonItem/PokemonItem";
+import { Loader } from "@/components/Loader/Loader";
+import { ErrorMessage } from "@/components/ErrorMessage/ErrorMessage";
+import { API } from "@/constants/apiPaths";
+import { ERROR_MESSAGE } from "@/constants/errorMessage";
+import { Pokemon } from "@/interfaces/pokemon";
 import { useOperationState } from "@/hooks/useOperationState/useOperationState";
 import "./PokemonList.css";
 
-const PokemonList = () => {
+export const PokemonList = () => {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
   const { error, setError, isLoading, setIsLoading } = useOperationState();
 
@@ -45,5 +48,3 @@ const PokemonList = () => {
     </>
   );
 };
-
-export default PokemonList;
