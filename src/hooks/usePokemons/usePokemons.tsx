@@ -26,7 +26,6 @@ export const usePokemons = () => {
 
   useEffect(() => {
     let isMounted = true;
-
     fetchPokemons(isMounted);
 
     return () => {
