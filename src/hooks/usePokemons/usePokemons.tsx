@@ -17,7 +17,6 @@ export const usePokemons = () => {
 
       const data = await response.json();
       if (isMounted) setPokemons(data);
-      
     } catch (err) {
       if (err instanceof Error && isMounted) setError(err.message);
     } finally {
