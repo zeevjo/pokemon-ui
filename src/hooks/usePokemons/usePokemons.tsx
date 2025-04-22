@@ -8,24 +8,31 @@ export const usePokemons = () => {
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
+  const fetchPokemons = async (isMounted: boolean) => {
+    try {
+      const url = `${API.BASE_URL}${API.PATHS.GET_ALL_POKEMON}`;
+      const response = await fetch(url);
+
+      if (!response.ok) throw new Error(ERROR_MESSAGE.TRY_AGAIN_LATER);
+
+      const data = await response.json();
+      if (isMounted) setPokemons(data);
+      
+    } catch (err) {
+      if (err instanceof Error && isMounted) setError(err.message);
+    } finally {
+      if (isMounted) setIsLoading(false);
+    }
+  };
+
   useEffect(() => {
-    const fetchPokemons = async () => {
-      try {
-        const url = `${API.BASE_URL}${API.PATHS.GET_ALL_POKEMON}`;
-        const response = await fetch(url);
+    let isMounted = true;
 
-        if (!response.ok) throw new Error(ERROR_MESSAGE.TRY_AGAIN_LATER);
+    fetchPokemons(isMounted);
 
-        const data = await response.json();
-        setPokemons(data);
-      } catch (err) {
-        if (err instanceof Error) setError(err.message);
-      } finally {
-        setIsLoading(false);
-      }
+    return () => {
+      isMounted = false;
     };
-
-    fetchPokemons();
   }, []);
 
   return { pokemons, error, isLoading };
