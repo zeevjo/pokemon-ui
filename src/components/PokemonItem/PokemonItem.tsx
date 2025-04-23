@@ -1,7 +1,11 @@
-import { Pokemon as PokemonProps } from "@/interfaces/pokemon";
 import "./pokemonItem.css";
 
-export const PokemonItem = ({ pokedexNumber, name }: PokemonProps) => {
+interface PokemonItemPorps {
+  pokedexNumber: number;
+  name: string;
+}
+
+export const PokemonItem = ({ pokedexNumber, name }: PokemonItemPorps) => {
   return (
     <li className="pokemonItemContainer">
       <div>Pokemon Number: {pokedexNumber}</div>

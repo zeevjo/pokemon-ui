@@ -15,7 +15,11 @@ export const PokemonList = () => {
         <div className="pokemonListContainer">
           <h1 className="pokemonListTitle">Pokemon List</h1>
           {pokemons.map((pokemon) => (
-            <PokemonItem key={pokemon.pokedexNumber} {...pokemon} />
+            <PokemonItem
+              key={pokemon.pokedexNumber}
+              pokedexNumber={pokemon.pokedexNumber}
+              name={pokemon.name}
+            />
           ))}
         </div>
       )}
