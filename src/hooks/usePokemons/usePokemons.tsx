@@ -21,6 +21,8 @@ export const usePokemons = () => {
     } catch (err) {
       if (err instanceof Error && isMountedRef.current) setError(err.message);
     } finally {
+      console.log("test", isMountedRef);
+      
       if (isMountedRef.current) setIsLoading(false);
     }
   };
