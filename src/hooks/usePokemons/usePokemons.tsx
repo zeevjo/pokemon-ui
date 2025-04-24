@@ -20,14 +20,14 @@ export const usePokemons = () => {
       if (isMountedRef.current) setPokemons(data);
     } catch (err) {
       if (err instanceof Error && isMountedRef.current) setError(err.message);
-    } finally {
-      console.log("test", isMountedRef);
-      
+    } finally {      
       if (isMountedRef.current) setIsLoading(false);
     }
   };
 
   useEffect(() => {
+    isMountedRef.current = true;   
+
     fetchPokemons();
     return () => {
       isMountedRef.current = false;
