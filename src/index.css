@@ -1,7 +1,19 @@
+:root {
+  --light-blue: rgb(194, 222, 220);
+  --light-yellow: rgb(236, 229, 199);
+  --light-brown: rgb(205, 194, 174);
+  --dark-blue: rgb(17, 106, 123);
+  --error-red: rgb(192, 65, 64);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   display: flex;
-  justify-content: center;
-  align-items: center;
   min-height: 100vh;
-  background-color: black;
+  background-color: var(--light-blue);
 }

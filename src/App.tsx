@@ -1,7 +1,12 @@
+import { PokemonList } from "@/components/PokemonList/PokemonList";
 import "./App.css";
 
 const App = () => {
-  return <h1>Hello world</h1>;
-}
+  return (
+    <div className="appContainer">
+      <PokemonList />
+    </div>
+  );
+};
 
-export default App
+export default App;
