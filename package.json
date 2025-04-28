@@ -8,7 +8,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run"
+    "cypress:run": "cypress run --component"
   },
   "dependencies": {
     "react": "^19.0.0",
