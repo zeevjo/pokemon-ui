@@ -1,13 +1,52 @@
-import App from './App'
+import App from "./App";
 
-describe('main page', () => {
+describe("main page", () => {
+  it("should display while waiting for server response", () => {
+    cy.intercept("GET", "http://localhost:8080/api/pokemon", {
+      fixture: "pokemonList.json",
+      delayMs: 1000,
+    }).as("getPokemons");
 
-  it('shuld conatin a pokemon list', () => {
-    cy.mount(<App />)
-    cy.get(".pokemonListContainer > li").should("have.length", 151)
-  })
+    cy.mount(<App />);
+    cy.get(".loadingContainer")
+      .should("be.visible")
+      .and("contain.text", "Loading...");
 
-  
+    cy.wait("@getPokemons");
+  });
 
+  it("should display pokemon list on successful api response", () => {
+    cy.intercept("GET", "http://localhost:8080/api/pokemon", {
+      statusCode: 200,
+      fixture: "pokemonList.json",
+    }).as("getPokemons");
 
-})
+    cy.mount(<App />);
+    cy.wait("@getPokemons");
+    cy.get(".pokemonListContainer > li").should("have.length", 151);
+  });
+
+  it("should not display loader on successful api response", () => {
+    cy.intercept("GET", "http://localhost:8080/api/pokemon", {
+      statusCode: 200,
+      fixture: "pokemonList.json",
+    }).as("getPokemons");
+
+    cy.mount(<App />);
+    cy.wait("@getPokemons");
+    cy.get(".loadingContainer").should("not.exist");
+  });
+
+  it("should display error message on server error", () => {
+    cy.intercept("GET", "http://localhost:8080/api/pokemon", {
+      statusCode: 500,
+      fixture: "pokemonList.json",
+    }).as("getPokemons");
+
+    cy.mount(<App />);
+    cy.wait("@getPokemons");
+    cy.get(".errorMessageContainer").contains(
+      "Something went wrong, Please try again later."
+    );
+  });
+});
