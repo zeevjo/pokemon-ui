@@ -37,6 +37,18 @@ nvm use
 yarn install
 ```
 
+### run cypress tests
+
+#### Open mode
+```bash 
+yarn test:cypress:open
+```
+
+#### Headless mode
+```bash
+yarn test:cypress:run
+```
+
 ### Start the development server:
 ```bash
 yarn dev
