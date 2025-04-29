@@ -1,8 +1,11 @@
 import App from "./App";
 
-describe("main page", () => {
-  it("should display while waiting for server response", () => {
-    cy.intercept("GET", "http://localhost:8080/api/pokemon", {
+describe("main page should display pokemon list", () => {
+  
+  const url = "http://localhost:8080/api/pokemon";
+
+  it("should display loader while waiting for server response", () => {
+    cy.intercept("GET", url, {
       fixture: "pokemonList.json",
       delayMs: 1000,
     }).as("getPokemons");
@@ -16,7 +19,7 @@ describe("main page", () => {
   });
 
   it("should display pokemon list on successful api response", () => {
-    cy.intercept("GET", "http://localhost:8080/api/pokemon", {
+    cy.intercept("GET", url, {
       statusCode: 200,
       fixture: "pokemonList.json",
     }).as("getPokemons");
@@ -27,7 +30,7 @@ describe("main page", () => {
   });
 
   it("should not display loader on successful api response", () => {
-    cy.intercept("GET", "http://localhost:8080/api/pokemon", {
+    cy.intercept("GET", url, {
       statusCode: 200,
       fixture: "pokemonList.json",
     }).as("getPokemons");
@@ -38,7 +41,7 @@ describe("main page", () => {
   });
 
   it("should display error message on server error", () => {
-    cy.intercept("GET", "http://localhost:8080/api/pokemon", {
+    cy.intercept("GET", url, {
       statusCode: 500,
       fixture: "pokemonList.json",
     }).as("getPokemons");
