@@ -1,7 +1,7 @@
 import App from "./App";
 
 describe("main page should display pokemon list", () => {
-  
+
   const url = "http://localhost:8080/api/pokemon";
 
   const types = [{ name: "Grass" }, { name: "Poison" }];
