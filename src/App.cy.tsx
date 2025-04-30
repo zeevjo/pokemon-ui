@@ -1,34 +1,23 @@
 import App from "./App";
 
 describe("main page should display pokemon list", () => {
+  
   const url = "http://localhost:8080/api/pokemon";
+
+  const types = [{ name: "Grass" }, { name: "Poison" }];
 
   const pokemons = [
     {
       pokedexNumber: 1,
       name: "Bulbasaur",
       imgUrl: "http://www.serebii.net/pokemongo/pokemon/001.png",
-      types: [
-        {
-          name: "Grass",
-        },
-        {
-          name: "Poison",
-        },
-      ],
+      types: types,
     },
     {
       pokedexNumber: 2,
       name: "Ivysaur",
       imgUrl: "http://www.serebii.net/pokemongo/pokemon/002.png",
-      types: [
-        {
-          name: "Grass",
-        },
-        {
-          name: "Poison",
-        },
-      ],
+      types: types,
     },
   ];
 
