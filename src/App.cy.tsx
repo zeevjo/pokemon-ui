@@ -1,12 +1,41 @@
 import App from "./App";
 
 describe("main page should display pokemon list", () => {
-  
   const url = "http://localhost:8080/api/pokemon";
+
+  const pokemons = [
+    {
+      pokedexNumber: 1,
+      name: "Bulbasaur",
+      imgUrl: "http://www.serebii.net/pokemongo/pokemon/001.png",
+      types: [
+        {
+          name: "Grass",
+        },
+        {
+          name: "Poison",
+        },
+      ],
+    },
+    {
+      pokedexNumber: 2,
+      name: "Ivysaur",
+      imgUrl: "http://www.serebii.net/pokemongo/pokemon/002.png",
+      types: [
+        {
+          name: "Grass",
+        },
+        {
+          name: "Poison",
+        },
+      ],
+    },
+  ];
 
   it("should display loader while waiting for server response", () => {
     cy.intercept("GET", url, {
-      fixture: "pokemonList.json",
+      statusCode: 200,
+      body: pokemons,
       delayMs: 1000,
     }).as("getPokemons");
 
@@ -21,18 +50,27 @@ describe("main page should display pokemon list", () => {
   it("should display pokemon list on successful api response", () => {
     cy.intercept("GET", url, {
       statusCode: 200,
-      fixture: "pokemonList.json",
+      body: pokemons,
     }).as("getPokemons");
 
     cy.mount(<App />);
     cy.wait("@getPokemons");
-    cy.get(".pokemonListContainer > li").should("have.length", 151);
+    cy.get(".pokemonListContainer > .pokemonItemContainer").should(
+      "have.length",
+      2
+    );
+
+    pokemons.forEach(({ pokedexNumber, name }) => {
+      cy.get(".pokemonItemContainer")
+        .should("contain.text", `Pokemon Number: ${pokedexNumber}`)
+        .and("contain.text", `Pokemon Name: ${name}`);
+    });
   });
 
   it("should not display loader on successful api response", () => {
     cy.intercept("GET", url, {
       statusCode: 200,
-      fixture: "pokemonList.json",
+      body: pokemons,
     }).as("getPokemons");
 
     cy.mount(<App />);
@@ -43,7 +81,7 @@ describe("main page should display pokemon list", () => {
   it("should display error message on server error", () => {
     cy.intercept("GET", url, {
       statusCode: 500,
-      fixture: "pokemonList.json",
+      body: pokemons,
     }).as("getPokemons");
 
     cy.mount(<App />);
